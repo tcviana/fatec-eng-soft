@@ -7,7 +7,7 @@ public class Curso {
 	private String nome;
 	private int idadeMinima, idadeMaxima, tempoDuracao;
 	private List<Bolsa> bolsas = new LinkedList<Bolsa>();
-	
+
 	public Curso(String nome, int min, int max, int duracao) {
 		this.nome = nome;
 		this.idadeMinima = min;
@@ -58,8 +58,20 @@ public class Curso {
 	public void adicionaBolsa(Bolsa bolsa) {
 		this.bolsas.add(bolsa);
 	}
-	
+
 	public void removerBolsa(Bolsa bolsa) {
 		this.bolsas.remove(bolsa);
+	}
+	
+	public List<Bolsa> buscaBolsaPorRangePreco(float precoMinimo, float precoMaximo) {
+		List<Bolsa> bolsasRetorno = new LinkedList<Bolsa>();
+
+		for (Bolsa bolsa : bolsas) {
+			if (bolsa.getValor() >= precoMinimo && bolsa.getValor() <= precoMaximo) {
+				bolsasRetorno.add(bolsa);
+			}
+		}
+
+		return bolsasRetorno;
 	}
 }

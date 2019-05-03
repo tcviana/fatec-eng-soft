@@ -7,9 +7,8 @@ public class Unidade {
 	private String nome, endereco, telefone, email;
 	private TipoUnidade tipoUnidade;
 	private List<Curso> cursos = new LinkedList<Curso>();
-	
-	public Unidade(String nome, String endereco, String telefone, String email, TipoUnidade tipoUnidade)
-	{
+
+	public Unidade(String nome, String endereco, String telefone, String email, TipoUnidade tipoUnidade) {
 		this.nome = nome;
 		this.endereco = endereco;
 		this.telefone = telefone;
@@ -28,7 +27,7 @@ public class Unidade {
 	public void adicionaCurso(Curso curso) {
 		this.cursos.add(curso);
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -37,12 +36,12 @@ public class Unidade {
 		this.nome = nome;
 	}
 
-	public String getEndreco() {
+	public String getEndereco() {
 		return endereco;
 	}
 
-	public void setEndreco(String endreco) {
-		this.endereco = endreco;
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 
 	public String getTelefone() {
@@ -69,11 +68,36 @@ public class Unidade {
 		this.tipoUnidade = tipoUnidade;
 	}
 
-	public boolean compararUnidade(Unidade unidade)
-	{
-		if (unidade.getNome().equals(this.nome) && unidade.getEndreco().equals(this.endereco))
+	public boolean compararUnidade(Unidade unidade) {
+		if (unidade.getNome().equals(this.nome) && unidade.getEndereco().equals(this.endereco))
 			return true;
-		
+
 		return false;
+	}
+
+	public List<Curso> buscaCursosPorNome(String nome) {
+
+		List<Curso> cursosRetorno = new LinkedList<Curso>();
+
+		for (Curso curso : cursos) {
+			if (curso.getNome().equals(nome)) {
+				cursosRetorno.add(curso);
+			}
+		}
+
+		return cursosRetorno;
+	}
+
+	public List<Curso> buscaCursosRangeIdade(int idadeMinima, int idadeMaxima) {
+
+		List<Curso> cursosRetorno = new LinkedList<Curso>();
+
+		for (Curso curso : cursos) {
+			if (curso.getIdadeMinima() >= idadeMinima && curso.getIdadeMaxima() <= idadeMaxima) {
+				cursosRetorno.add(curso);
+			}
+		}
+
+		return cursosRetorno;
 	}
 }

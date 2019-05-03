@@ -32,10 +32,10 @@ class UnidadeTests {
 		
 		escola.cadastrarUnidade(unidade);
 		escola.getUnidades().get(0).setEmail(email);
-		escola.getUnidades().get(0).setEndreco(endereco);
+		escola.getUnidades().get(0).setEndereco(endereco);
 		
 		assertEquals(escola.getUnidades().get(0).getEmail(), email);
-		assertEquals(escola.getUnidades().get(0).getEndreco(), endereco);
+		assertEquals(escola.getUnidades().get(0).getEndereco(), endereco);
 	}
 	
 	@Test
